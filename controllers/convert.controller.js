@@ -5,11 +5,11 @@ exports.upload=  async(req, res) => {
   
     try {
 
-        pdf2html.html(req.params.path, (err, html) => {
+        pdf2html.pages(req.params.path, (err, html) => {
             if (err) {
                 console.error('Conversion error: ' + err)
             } else {
-                res.send(html)
+                res.json(html)
             }
         })
     } catch (err) {
